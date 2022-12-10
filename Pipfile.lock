@@ -19,11 +19,11 @@
     "default": {
         "certifi": {
             "hashes": [
-                "sha256:0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14",
-                "sha256:90c1a32f1d68f940488354e36370f6cca89f0f106db09518524c88d6ed83f382"
+                "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3",
+                "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2022.9.24"
+            "version": "==2022.12.7"
         },
         "charset-normalizer": {
             "hashes": [
@@ -157,11 +157,11 @@
         },
         "manim": {
             "hashes": [
-                "sha256:0ba894b9c16287b7dab8be25dfd5e757b37fe1bcbd0852521ce55571353035e8",
-                "sha256:9b9aea1b834b104d7cb173e78e9aacef08917c5da27fd3c4ef85ce881761157b"
+                "sha256:61f010becbdbbaf3337299b37d45e12b282b8beb744da443d5152ae3e6e8783b",
+                "sha256:ee939c11fda86d34c9ec4bfd3faf71ea7ebe1758e94833d802de4909b748a5c1"
             ],
             "index": "pypi",
-            "version": "==0.17.0"
+            "version": "==0.17.1"
         },
         "manim-presentation": {
             "hashes": [

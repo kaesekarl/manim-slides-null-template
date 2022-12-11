@@ -26,7 +26,7 @@ class tableofcontents(Slide):
         Headline = Text("Table of Contents", font="Arial", color=WHITE).scale(1.5).to_corner(UL, buff=1)
 
         self.wait()
-        self.play(Write(Headline))
+        self.add(Headline)
 
         self.pause()
         self.wait()
@@ -34,9 +34,11 @@ class tableofcontents(Slide):
 
 class test1(Slide):
     def construct(self):
-        layouts.baselayout(self)
+        layouts.baselayout(self, title="Test für einen Titel", page=1, totalpages=3)
 
-
+class test2(Slide):
+    def construct(self):
+        layouts.titlelayout(self, title="Titel", subtitle="Subtitle", author="Author")
 class closer(Slide):
     def construct(self):
         Headline = Text("Thank you for watching!", font="Arial", color=WHITE).scale(1.5)

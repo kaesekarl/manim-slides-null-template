@@ -3,12 +3,10 @@ from manim_presentation import *
 from colour import Color, HSL
 
 
-
-
-def colorCreator(hexValue):
+def color_creator(hex_value):
     newcolor = Color()
-    newcolor.hex = f'#{hexValue}'
+    newcolor.hex = f'#{hex_value}'
     return newcolor
 
 
-mainColor = colorCreator(212529)
+mainColor = color_creator(212529)

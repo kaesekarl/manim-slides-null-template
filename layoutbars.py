@@ -5,22 +5,17 @@ from constants import *
 import newColors as nc
 
 
+def top_bar(color_of_frame=nc.mainColor):
+    return Rectangle(height=0.5, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(UP, buff=0)
 
 
-def topbar(self, colorOfFrame=nc.mainColor):
-    quader = Rectangle(height=0.5, width=FRAME_WIDTH, color=colorOfFrame, fill_color=colorOfFrame, fill_opacity=1).to_edge(UP, buff=0)
-    self.add(quader)
+def bottom_bar(color_of_frame=nc.mainColor):
+    return Rectangle(height=0.5, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(DOWN, buff=0)
 
 
-def bottombar(self, colorOfFrame=nc.mainColor):
-    quader = Rectangle(height=0.5, width=FRAME_WIDTH, color=colorOfFrame, fill_color=colorOfFrame, fill_opacity=1).to_edge(DOWN, buff=0)
-    self.add(quader)
+def both_bars(color_of_frame=nc.mainColor):
+    return VGroup(top_bar(color_of_frame), bottom_bar(color_of_frame))
 
 
-def bothbars(self, colorOfFrame=nc.mainColor):
-    topbar(self, colorOfFrame)
-    bottombar(self, colorOfFrame)
-
-def centerbar(self, colorOfFrame=nc.mainColor):
-    quader = Rectangle(height=4, width=2/3*FRAME_WIDTH, color=colorOfFrame, fill_color=colorOfFrame, fill_opacity=1).to_edge(LEFT, buff=0)
-    self.add(quader)
+def center_bar(color_of_frame=nc.mainColor):
+    return Rectangle(height=4, width=2/3*FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(LEFT, buff=0)

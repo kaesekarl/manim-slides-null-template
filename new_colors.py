@@ -1,4 +1,3 @@
-from manim import *
 from colour import Color, HSL
 
 

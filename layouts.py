@@ -2,7 +2,7 @@ from manim import *
 from manim_presentation import *
 from colour import Color, HSL
 from constants import *
-from layoutbars import *
+from layout_elements import *
 from newColors import *
 
 

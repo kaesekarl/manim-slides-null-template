@@ -1,9 +1,9 @@
 from manim import *
-from manim_presentation import *
+from manim_slides import *
 from colour import Color, HSL
 from constants import *
 from layout_elements import *
-from newColors import *
+from new_colors import *
 import layouts
 
 
@@ -32,22 +32,11 @@ class TableOfContents(Slide):
         self.wait()
 
 
-class Test1(Slide):
-    def construct(self):
-        layouts.base_layout(self, title="Test für einen Titel", page=1, total_pages=3)
-
 
 class Test2(Slide):
     def construct(self):
         self.add(layouts.title_layout(title="Titel", subtitle="Subtitle", author="Author"))
 
 
-class Closer(Slide):
-    def construct(self):
-        headline = Text("Thank you for watching!", font="Arial", color=WHITE).scale(1.5)
-        self.wait()
 
-        self.play(Write(headline))
 
-        self.pause()
-        self.wait()

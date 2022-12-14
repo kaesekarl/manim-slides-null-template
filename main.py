@@ -23,20 +23,15 @@ class Title(Slide):
 
 class TableOfContents(Slide):
     def construct(self):
-        headline = Text("Table of Contents", font="Arial", color=WHITE).scale(1.5).to_corner(UL, buff=1)
-
-        self.wait()
-        self.add(headline)
-
-        self.pause()
-        self.wait()
-
+        TOC = layouts.table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"])
+        self.add(TOC)
 
 
 class Test2(Slide):
     def construct(self):
-        self.add(layouts.title_layout(title="Titel", subtitle="Subtitle", author="Author"))
-
+        self.play(Create(layouts.title_layout(title="Titel", subtitle="Subtitle", author="Author")))
+        self.pause()
+        self.wait()
 
 
 

@@ -39,7 +39,7 @@ class Test1(Slide):
 
 class Test2(Slide):
     def construct(self):
-        layouts.title_layout(self, title="Titel", subtitle="Subtitle", author="Author")
+        self.add(layouts.title_layout(title="Titel", subtitle="Subtitle", author="Author"))
 
 
 class Closer(Slide):

@@ -4,23 +4,37 @@ from colour import Color
 from constants import *
 from layout_elements import *
 from new_colors import *
-import layouts
+from layouts import *
 
 
 class Title(Slide):
     def construct(self):
-        self.add(layouts.title_layout(title="Title", subtitle="Subtitle", author="Author"))
+        self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author"), run_time=0.001))
+        self.pause()
+        self.wait()
 
 
 class TableOfContents(Slide):
     def construct(self):
-        TOC = layouts.table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"])
-        self.add(TOC)
-
-
-class Test2(Slide):
-    def construct(self):
-        self.play(Create(layouts.title_layout(title="Titel", subtitle="Subtitle", author="Author")))
+        self.play(Create(table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"]), run_time=0.001))
         self.pause()
         self.wait()
 
+
+class BasicSlide(Slide):
+    def construct(self):
+        self.play(Create(title_layout(title="Titel", subtitle="Subtitle", author="Author"), run_time=0.001))
+        self.pause()
+        self.wait()
+
+
+class Test1(Slide):
+    def construct(self):
+        self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author"), run_time=0.001))
+        self.pause()
+        self.play(Create(table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"]), run_time=0.001))
+        self.pause()
+        self.play(Create(base_layout(color_of_frame = nc.COL_BACKGROUND, title="Title"), run_time=0.001))
+        self.pause()
+
+        self.wait()

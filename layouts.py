@@ -18,14 +18,11 @@ def title_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", subtitle="Subt
 
     elements.add(DashedLine(color=COL_ACCENT_1, start=[-6, 1, 0], end=[6, 1, 0]))  # Underline of Title
     elements.add(Text(title, weight=BOLD, font="sans-serif", color=COL_ACCENT_1).scale(0.75).align_to(elements[1],
-                                                                                                      LEFT + UP).shift(
-        UP * 0.66))  # Title
-    elements.add(
-        Text(subtitle, weight=BOLD, font="sans-serif", color=WHITE).scale(0.5).align_to(elements[1], DOWN + LEFT).shift(
-            DOWN))  # Subtitle
+                                                                                                      LEFT + UP).shift(UP * 0.66))  # Title
+    elements.add(Text(subtitle, weight=BOLD, font="sans-serif", color=WHITE).scale(0.5).align_to(elements[1],
+                                                                                                 DOWN + LEFT).shift(DOWN))  # Subtitle
     elements.add(Text(author, weight=BOLD, font="sans-serif", color=ZUT_TAN).scale(0.33).align_to(elements[3],
-                                                                                                  DOWN + LEFT).shift(
-        DOWN * 0.66))  # Author
+                                                                                                  DOWN + LEFT).shift(DOWN * 0.66))  # Author
 
     return elements
 

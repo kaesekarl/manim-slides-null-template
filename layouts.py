@@ -67,7 +67,7 @@ def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", page=None, tota
     elements = VGroup()
 
     elements.add(background_solid(color_of_frame))
-    elements.add(both_bars(color_of_frame))
+    # elements.add(both_bars(color_of_frame)) # Bars are on hold for now, can be added if desired
     elements.add(Text(title, font="sans-serif", color=WHITE).scale(0.75).to_corner(UL, buff=0.55))  # Title
 
     if page is not None and total_pages is not None:

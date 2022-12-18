@@ -2,7 +2,8 @@
 **Author:** Kaesekarl  
 This is a framework for creating slides with Manim. It uses the [manim library](https://github.com/3b1b/manim) 
 to render the Animations and Slides. 
-It also uses the [manim-slides](https://github.com/jeertmans/manim-slides) library to create the Presentation itself. 
+It also uses the [manim-slides](https://github.com/jeertmans/manim-slides) library to create the Presentation itself.
+The Design is heavily influenced by [karlosos LaTeX-Beamer Template](https://github.com/karlosos/zut-fibeamer).
 
 ## Installation
 Please follow the instructions for Manim and Manim-Slides. This framework comes with pipenv-files, so you can use 

@@ -6,9 +6,12 @@ from layout_elements import *
 from new_colors import *
 from layouts import *
 
+TOC_DICT = {
+    0: "Title",
+    1: "Table of Contents",
+    2: "Basic Slide",
+    3: "Test 1"
+}
 
-sc = SlideCounter(0)
+TOC = TableofContents(TOC_DICT)
 
-for i in range(1, 10):
-    sc.inc()
-    print(sc.get(), "of", sc.max_slides)

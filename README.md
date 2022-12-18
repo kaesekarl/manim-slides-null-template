@@ -1,6 +1,6 @@
 # Documentation for Manim-Slides-Framework
 **Author:** Kaesekarl  
-This is a framework for creating slides with Manim. It uses the [manim library](https://github.com/3b1b/manim) 
+This is a framework for creating slides with Manim. It uses the [manim CE library ](https://github.com/ManimCommunity/manim/) 
 to render the Animations and Slides. 
 It also uses the [manim-slides](https://github.com/jeertmans/manim-slides) library to create the Presentation itself.
 The Design is heavily influenced by [karlosos LaTeX-Beamer Template](https://github.com/karlosos/zut-fibeamer).

@@ -6,12 +6,7 @@ from layout_elements import *
 from new_colors import *
 from layouts import *
 
-TOC_DICT = {
-    0: "Title",
-    1: "Table of Contents",
-    2: "Basic Slide",
-    3: "Test 1"
-}
+TOC_CHAPTERS = ["Title", "Table of Contents", "Basic Slide", "Test 1"]
 
-TOC = TableofContents(TOC_DICT)
+TOC = TableofContents(TOC_CHAPTERS)
 

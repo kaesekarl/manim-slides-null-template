@@ -1,40 +1,7 @@
+from scenes import *
 from manim import *
-from manim_slides import *
-from colour import Color
-from constants import *
-from layout_elements import *
-from new_colors import *
-from layouts import *
 
+SCENES_IN_ORDER = [Test1()]
 
-class Title(Slide):
-    def construct(self):
-        self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author"), run_time=0.001))
-        self.pause()
-        self.wait()
-
-
-class TableOfContents(Slide):
-    def construct(self):
-        self.play(Create(table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"]), run_time=0.001))
-        self.pause()
-        self.wait()
-
-
-class BasicSlide(Slide):
-    def construct(self):
-        self.play(Create(title_layout(title="Titel", subtitle="Subtitle", author="Author"), run_time=0.001))
-        self.pause()
-        self.wait()
-
-
-class Test1(Slide):
-    def construct(self):
-        self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author"), run_time=0.001))
-        self.pause()
-        self.play(Create(table_of_contents_layout(title="Table of Contents", chapters=["Chapter 1", "Chapter 2", "Chapter 3"]), run_time=0.001))
-        self.pause()
-        self.play(Create(base_layout(color_of_frame = nc.COL_BACKGROUND, title="Title"), run_time=0.001))
-        self.pause()
-
-        self.wait()
+for scene in SCENES_IN_ORDER:
+    scene.render()

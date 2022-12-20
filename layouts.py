@@ -3,6 +3,25 @@ from layout_elements import *
 from new_colors import *
 
 
+def apply_layout(self, layout: VGroup, table_of_contents: TableofContents = None, run_time=0.001, pause=False):
+    """
+    Applies a layout to the current scene.
+    :param self: The current scene.
+    :param layout: Layout to be applied.
+    :param table_of_contents: The TableofContents object to manage the Slide Counter. Default is None.
+    :param run_time: How long the animation should take. Default is 0.001 for instant application.
+    :param pause: Whether the scene should pause after applying the layout. Default is False.
+    :return: None
+    """
+    if table_of_contents is not None:
+        table_of_contents.inc()
+    self.play(Create(layout), run_time=run_time)
+    self.wait()
+
+    if pause:
+        self.pause()
+
+
 def title_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", subtitle="Subtitle", author="Author") -> VGroup:
     """
     Creates a Title Slide with a title, subtitle and author.
@@ -70,7 +89,8 @@ def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_conten
     if table_of_contents is not None:
         if table_of_contents.current_slide_num is not None and table_of_contents.max_slides is not None:
             elements.add(
-                    Text(f"{table_of_contents.current_slide_num} / {table_of_contents.max_slides}", font="sans-serif", color=WHITE).scale(0.33).to_corner(DR, buff=0.55))
+                    Text(f"{table_of_contents.current_slide_num} / {table_of_contents.max_slides}", font="sans-serif", color=WHITE).scale(0.33).to_corner(
+                            DR, buff=0.55))
         elif table_of_contents.current_slide_num is not None:
             elements.add(Text(f"{table_of_contents.current_slide_num}", font="sans-serif", color=WHITE).scale(0.33).to_corner(DR, buff=0.55))
 

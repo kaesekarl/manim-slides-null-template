@@ -35,9 +35,7 @@ class BasicSlide(Slide):
 
 class Test1(Slide):
     def construct(self):
-        self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author")))
-        self.wait()
-        TOC.inc()
+        apply_layout(self, title_layout(title="Titel", subtitle="Subtitle", author="Author"), table_of_contents=TOC)
         self.pause()
         self.play(Create(table_of_contents_layout(title="Table of Contents", table_of_contents=TOC)))
         self.wait()

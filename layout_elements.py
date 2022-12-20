@@ -36,15 +36,16 @@ def center_bar(color_of_frame=nc.COL_BACKGROUND):
 
 class TableofContents:
 
-    def __init__(self, chapters: list = None):
+    def __init__(self, chapters: list = None, max_slides: int = None):
         """
         Creates a slide counter to keep track of slide numbers
-        :param chapters: list of chapters. Form is ["None", "Chapter 1", Chapter 1", Chapter 2", "Chapter 3", "Chapter 3"] to have each entry be a
-        page matching a chapter. Default is None.
+        :param chapters: list of chapters. Form is ["Chapter 1", "Chapter 2, ...]. Default is None.
         """
         self.current_slide_num = 0
-        self.max_slides = len(chapters)
+        self.max_slides = max_slides
+        self.max_chapters = len(chapters)
         self.chapters = chapters
+        self.current_chapter = 0
 
     def set(self, page):
         self.current_slide_num = page
@@ -59,12 +60,18 @@ class TableofContents:
         return self.current_slide_num
 
     def max(self):
-        return self.max_slides
+        return self.max_chapters
 
-    def get_chapter(self, slide_num=None):
-        if slide_num is None:
-            return self.chapters[self.current_slide_num]
-        return self.chapters[slide_num]
+    def inc_chapter(self):
+        self.current_chapter += 1
+
+    def set_chapter(self, chapter_num):
+        self.current_chapter = chapter_num
+
+    def get_chapter(self, chapter_num=None):
+        if chapter_num is None:
+            return self.chapters[self.current_chapter]
+        return self.chapters[chapter_num]
 
     def get_chapters(self):
         return self.chapters

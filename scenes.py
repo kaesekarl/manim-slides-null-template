@@ -37,12 +37,15 @@ class Test1(Slide):
     def construct(self):
         self.play(Create(title_layout(title="Title", subtitle="Subtitle", author="Author")))
         self.wait()
+        TOC.inc()
         self.pause()
         self.play(Create(table_of_contents_layout(title="Table of Contents", table_of_contents=TOC)))
         self.wait()
+        TOC.inc()
         self.pause()
-        self.play(Create(base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title")))
+        self.play(Create(base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_contents=TOC)))
         self.wait()
+        TOC.inc()
         self.pause()
 
         self.wait()

@@ -46,6 +46,7 @@ class TableofContents:
         self.max_chapters = len(chapters)
         self.chapters = chapters
         self.current_chapter = 0
+        self.current_layout = None
 
     def set(self, page):
         self.current_slide_num = page
@@ -73,3 +74,9 @@ class TableofContents:
 
     def get_chapters(self):
         return self.chapters
+
+    def set_layout(self, layout):
+        self.current_layout = layout
+
+    def get_layout(self):
+        return self.current_layout

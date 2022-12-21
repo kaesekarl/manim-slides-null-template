@@ -3,7 +3,7 @@ from layout_elements import *
 from new_colors import *
 
 
-def apply_layout(self, layout: VGroup, table_of_contents: TableofContents = None, run_time=0.001, pause=False):
+def apply_layout(self, layout: VGroup, table_of_contents: TableofContents = None, run_time=0.001, pause=False, tabula_rasa=False):
     """
     Applies a layout to the current scene.
     :param self: The current scene.
@@ -11,10 +11,16 @@ def apply_layout(self, layout: VGroup, table_of_contents: TableofContents = None
     :param table_of_contents: The TableofContents object to manage the Slide Counter. Default is None.
     :param run_time: How long the animation should take. Default is 0.001 for instant application.
     :param pause: Whether the scene should pause after applying the layout. Default is False.
+    :param tabula_rasa: Whether the scene should be cleared before applying the layout. Default is False.
     :return: None
     """
+    if tabula_rasa:
+        self.clear()
+    table_of_contents.set_layout(layout)
+
     if table_of_contents is not None:
         table_of_contents.inc()
+
     self.play(Create(layout), run_time=run_time)
     self.wait()
 
@@ -67,7 +73,8 @@ def table_of_contents_layout(color_of_frame=nc.COL_BACKGROUND, title="Table of C
 
         for i in range(len(table_of_contents.get_chapters())):
             elements.add(
-                    Text(table_of_contents.get_chapters()[i], font="sans-serif", color=WHITE).scale(0.5).align_to(elements[2 + i], LEFT + UP).shift(RIGHT * 0.5))
+                    Text(table_of_contents.get_chapters()[i], font="sans-serif", color=WHITE).scale(0.5).align_to(elements[2 + i], LEFT + UP).shift(
+                        RIGHT * 0.5))
 
     return elements
 
@@ -89,25 +96,26 @@ def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_conten
     if table_of_contents is not None:
         if table_of_contents.current_slide_num is not None and table_of_contents.max_slides is not None:
             elements.add(
-                    Text(f"{table_of_contents.current_slide_num} / {table_of_contents.max_slides}", font="sans-serif", color=WHITE).scale(0.33).to_corner(
+                    Text(f"{table_of_contents.current_slide_num} / {table_of_contents.max_slides}", font="sans-serif", color=WHITE).scale(
+                        0.33).to_corner(
                             DR, buff=0.55))
         elif table_of_contents.current_slide_num is not None:
             elements.add(Text(f"{table_of_contents.current_slide_num}", font="sans-serif", color=WHITE).scale(0.33).to_corner(DR, buff=0.55))
 
     return elements
 
-def math_layout(title="Title", table_of_contents: TableofContents = None, *equations) -> VGroup:
+
+def math_layout(title="Title", table_of_contents: TableofContents = None) -> VGroup:
     """
     Creates a layout for a slide with mathematical equations.
     :param title: Title of the slide.
     :param table_of_contents: TableofContents object to manage the Slide Counter. Default is None.
-    :param equations: Equations to be displayed on the slide.
+    :param tabula_rasa: Whether the slides should be cleared before the next slide is shown. Default is False.
     :return: Returns a layout VGroup.
     """
     elements = base_layout(title=title, table_of_contents=table_of_contents)
-    elements.remove(elements[0])
-    for i in range(len(equations)):
-        y_coord = (len(equations) - 1) / 2 - i
-        elements.add(MathTex(equations[i]).scale(0.75).move_to([0, y_coord, 0]))
+    elements.remove(elements[0])  # Remove background
+
+
 
     return elements

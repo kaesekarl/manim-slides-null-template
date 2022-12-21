@@ -95,3 +95,19 @@ def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_conten
             elements.add(Text(f"{table_of_contents.current_slide_num}", font="sans-serif", color=WHITE).scale(0.33).to_corner(DR, buff=0.55))
 
     return elements
+
+def math_layout(title="Title", table_of_contents: TableofContents = None, *equations) -> VGroup:
+    """
+    Creates a layout for a slide with mathematical equations.
+    :param title: Title of the slide.
+    :param table_of_contents: TableofContents object to manage the Slide Counter. Default is None.
+    :param equations: Equations to be displayed on the slide.
+    :return: Returns a layout VGroup.
+    """
+    elements = base_layout(title=title, table_of_contents=table_of_contents)
+    elements.remove(elements[0])
+    for i in range(len(equations)):
+        y_coord = (len(equations) - 1) / 2 - i
+        elements.add(MathTex(equations[i]).scale(0.75).move_to([0, y_coord, 0]))
+
+    return elements

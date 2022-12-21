@@ -14,11 +14,11 @@ def background_solid(color_of_frame=nc.COL_BACKGROUND):
 
 
 def top_bar(color_of_frame=nc.COL_BACKGROUND):
-    return Rectangle(height=0.5, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(UP, buff=0)
+    return Rectangle(height=TOP_BAR_HEIGHT, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(UP, buff=0)
 
 
 def bottom_bar(color_of_frame=nc.COL_BACKGROUND):
-    return Rectangle(height=0.5, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(DOWN, buff=0)
+    return Rectangle(height=BOTTOM_BAR_HEIGHT, width=FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(DOWN, buff=0)
 
 
 def both_bars(color_of_frame=nc.COL_BACKGROUND) -> VGroup:

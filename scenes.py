@@ -5,6 +5,7 @@ from constants import *
 from layout_elements import *
 from new_colors import *
 from layouts import *
+import math as m
 
 TOC_CHAPTERS = ["Basic Slide", "Test 1"]
 
@@ -44,18 +45,24 @@ class Intro(Slide):
         self.wait()
 
 
-class Parabola(Slide):
+class SinCos(Slide):
 
     def construct(self):
-        apply_layout(self, base_layout(title="Parabel", table_of_contents=TOC))
+        # apply_layout(self, base_layout(title="Parabel"))
 
-        grid = NumberPlane(x_range=[-25, 25, 5], y_range=[0, 5, 1], x_length=FRAME_WIDTH, y_length=FRAME_HEIGHT)
-
-        parabolas = VGroup()
-        for i in range(1, 5):
-            parabolas += grid.plot(lambda x: i/5 * x ** 2, color=WHITE)
-
-        self.pause()
-        self.play(Create(parabolas))
-
+        axes = Axes(x_range=[-5, 5, 1], y_range=[-2, 2, 1], x_length=CONTENT_WIDTH, y_length=CONTENT_HEIGHT, axis_config={"stroke_color": WHITE})
+        labels = axes.get_axis_labels(x_label="x", y_label=MathTex("f(x)"))
+        self.play(Create(axes), Create(labels))
         self.wait()
+        elements = VGroup()
+
+        singraph = axes.plot(lambda x: m.sin(x), color=RED)
+        sinlabel = MathTex("f(x) = \\sin(x)", color=RED).next_to(singraph, UP).shift(RIGHT*2)
+        elements.add(singraph, sinlabel)
+
+        cosgraph = axes.plot(lambda x: m.cos(x), color=BLUE)
+        coslabel = MathTex("f(x) = \\cos(x)", color=BLUE).next_to(cosgraph, UP).shift(LEFT*2)
+        elements.add(cosgraph, coslabel)
+        self.play(Create(elements, run_time=2))
+        self.wait()
+

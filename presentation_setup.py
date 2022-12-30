@@ -8,5 +8,5 @@ from layouts import *
 
 TOC_CHAPTERS = ["Title", "Table of Contents", "Basic Slide", "Test 1"]
 
-TOC = TableofContents(TOC_CHAPTERS)
+TOC = TableOfContents(TOC_CHAPTERS)
 

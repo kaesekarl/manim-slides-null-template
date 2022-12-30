@@ -1,3 +1,3 @@
 # This file is used internally by FFMPEG.
-file 'file:C:/Users/Anwender/PycharmProjects/manim-slides-null-zut-template/media/videos/main/1080p60/partial_movie_files/Title/2902699114_3290984743_223132457.mp4'
-file 'file:C:/Users/Anwender/PycharmProjects/manim-slides-null-zut-template/media/videos/main/1080p60/partial_movie_files/Title/3931933789_329969645_2857647869.mp4'
+file 'file:/home/jan/PycharmProjects/manim-slides/media/videos/main/1080p60/partial_movie_files/Title/2902699114_1466650264_223132457.mp4'
+file 'file:/home/jan/PycharmProjects/manim-slides/media/videos/main/1080p60/partial_movie_files/Title/3931933789_329969645_3644853756.mp4'

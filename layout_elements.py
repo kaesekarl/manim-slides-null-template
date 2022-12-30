@@ -34,7 +34,7 @@ def center_bar(color_of_frame=nc.COL_BACKGROUND):
     return Rectangle(height=4, width=2/3*FRAME_WIDTH, color=color_of_frame, fill_color=color_of_frame, fill_opacity=1).to_edge(LEFT, buff=0)
 
 
-class TableofContents:
+class TableOfContents:
 
     def __init__(self, chapters: list = None, initial_slide_num=0, max_slides: int = None):
         """

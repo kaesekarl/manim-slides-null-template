@@ -3,29 +3,31 @@ from layout_elements import *
 from new_colors import *
 
 
-def apply_layout(self, layout: VGroup, table_of_contents: TableofContents = None, run_time=0.001, pause=False, tabula_rasa=False):
+def apply_layout(self, layout: VGroup, table_of_contents: TableOfContents = None, run_time=0.001, wait_for_content=False, tabula_rasa=False):
     """
     Applies a layout to the current scene.
     :param self: The current scene.
     :param layout: Layout to be applied.
     :param table_of_contents: The TableofContents object to manage the Slide Counter. Default is None.
-    :param run_time: How long the animation should take. Default is 0.001 for instant application.
-    :param pause: Whether the scene should pause after applying the layout. Default is False.
+    :param run_time: How long the Scene Setup should take. Default is 0.001 for instant application.
+    :param wait_for_content: Whether the scene should pause after applying the layout. Default is False.
     :param tabula_rasa: Whether the scene should be cleared before applying the layout. Default is False.
     :return: None
     """
     if tabula_rasa:
         self.clear()
-    table_of_contents.set_layout(layout)
+
 
     if table_of_contents is not None:
         table_of_contents.inc()
+        table_of_contents.set_layout(layout)
 
     self.play(Create(layout), run_time=run_time)
     self.wait()
 
-    if pause:
+    if wait_for_content:
         self.pause()
+
 
 
 def title_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", subtitle="Subtitle", author="Author") -> VGroup:
@@ -52,7 +54,7 @@ def title_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", subtitle="Subt
     return elements
 
 
-def table_of_contents_layout(color_of_frame=nc.COL_BACKGROUND, title="Table of Contents", table_of_contents: TableofContents = None) -> VGroup:
+def table_of_contents_layout(color_of_frame=nc.COL_BACKGROUND, title="Table of Contents", table_of_contents: TableOfContents = None) -> VGroup:
     """
     Creates a Table of Contents layout.
     :param color_of_frame: Background color of the slide. Default is ZUT_BLUE_DARK.
@@ -79,7 +81,7 @@ def table_of_contents_layout(color_of_frame=nc.COL_BACKGROUND, title="Table of C
     return elements
 
 
-def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_contents: TableofContents = None) -> VGroup:
+def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_contents: TableOfContents = None) -> VGroup:
     """
     Creates a base layout for a slide.
     :param color_of_frame: Color of the background. Default is ZUT_BLUE_DARK.
@@ -105,12 +107,11 @@ def base_layout(color_of_frame=nc.COL_BACKGROUND, title="Title", table_of_conten
     return elements
 
 
-def math_layout(title="Title", table_of_contents: TableofContents = None) -> VGroup:
+def math_layout(title="Title", table_of_contents: TableOfContents = None) -> VGroup:
     """
     Creates a layout for a slide with mathematical equations.
     :param title: Title of the slide.
-    :param table_of_contents: TableofContents object to manage the Slide Counter. Default is None.
-    :param tabula_rasa: Whether the slides should be cleared before the next slide is shown. Default is False.
+    :param table_of_contents: TableOfContents object to manage the Slide Counter. Default is None.
     :return: Returns a layout VGroup.
     """
     elements = base_layout(title=title, table_of_contents=table_of_contents)
